@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
     "cypress": "^12.4.1",
     "start-server-and-test": "^1.15.3"
   },
