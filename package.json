@@ -1,9 +1,15 @@
 {
   "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
     "cypress": "^12.4.1",
+    "cypress-xpath": "^2.0.1",
     "start-server-and-test": "^1.15.3"
   },
   "scripts": {
     "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.7.6",
+    "jquery": "^3.6.3"
   }
 }
