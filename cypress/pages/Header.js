@@ -1,31 +1,10 @@
 class Header { 
         
-    // main menu
-
-    /*getProductsMenuItem() {
-        return cy.get("header .sc-14c941d7-7 ul>li:nth-child(1)");
-    }
-
-    getSolutionsMenuItem() {
-        return cy.get("header .sc-14c941d7-7 ul>li:nth-child(3)");
-        //return cy.xpath('//header//ul[@class="sc-14c941d7-4 jgxzDd"]/li//span[text()="Solutions"]');
-    }*/
+    // main menu   
 
     getNetworkMenuItem() {
         return cy.get("header .sc-14c941d7-7 ul>li:nth-child(5) a");
-    }
-
-    /*getResourcesMenuItem() {
-        return cy.get("header .sc-14c941d7-7 ul>li:nth-child(6)");
-    }
-
-    getCompanyMenuItem() {
-        return cy.get("header .sc-14c941d7-7 ul>li:nth-child(8)");
-    }
-
-    getPricingMenuItem() {
-        return cy.get("header .sc-14c941d7-7 ul>li:nth-child(10)");
-    }*/  
+    }   
 
     //Products submenu
 
@@ -348,7 +327,19 @@ class Header {
     }
 
     clickSeeAllPricingSubMenuItem(){
-        this.getSeeAllPricingSubMenuItem().click({ force: true });       
+        this.getSeeAllPricingSubMenuItem().click({ force: true }); 
+    }  
+    
+    // Top sign up link 
+
+    getSignUpLink() {
+        return cy.get("header ul li div a.sign-up-link");
+    }
+
+    clickSignUpLink(){
+        this.getSignUpLink().click();
+        cy.wait(2000);
+        cy.url().should('contain', '/sign-up');
     }
 
   }
