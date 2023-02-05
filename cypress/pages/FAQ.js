@@ -46,9 +46,8 @@ class FAQ {
 
     getSixthDescriptionBlock() {
         return cy.xpath('//button[@aria-controls="faq6_description"]/../following-sibling::dd[@class="sc-fec4993d-8 iSMUTp"]');
-    } 
-    
-    //.should('have.css', 'font-family') 
+    }   
+     
 
     clickFirstBlock(){
         this.getFirstBlock().click();       

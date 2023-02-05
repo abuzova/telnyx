@@ -4,10 +4,11 @@ import FAQ from "../pages/FAQ.js"
 const header = new Header();
 const faq = new FAQ();
 
-describe('Checking correct the Main menu work', () => {
-  context('Checking correct the "Products" menuitem in the Footer', () =>{
+describe('Testing "Frequently Asked Questions" block work', () => {
+  context('Testing "Frequently Asked Questions" block work', () =>{
 
-    beforeEach(()=>{
+    //beforeEach(()=>{
+      before(()=>{
       cy.visit('https://telnyx.com/'); 
       // close "This site uses cookies." pop-up window 
       cy.get('button[aria-label="close and deny"]').click(); // need to check is screen is unlock? 
@@ -17,35 +18,26 @@ describe('Checking correct the Main menu work', () => {
 
     })
 
-    it('Click on the "How many SIP trunks do I need?" block', () =>{ 
+    it('Testing "Frequently Asked Questions" block work', () =>{
+      //'Click on the "How many SIP trunks do I need?" block' 
       faq.clickSecondBlock();  
       faq.shouldSecondDescriptionBlock();
-    })
-
-    it('Click on the "How much does SIP trunking cost?" block', () =>{     
+      //'Click on the "How much does SIP trunking cost?" block'
       faq.clickThirdBlock();      
-      faq.shouldThirdDescriptionBlock()    
-    })
-
-    it('Click on the "How many SIP trunks do I need?" block', () =>{     
+      faq.shouldThirdDescriptionBlock()
+      //'Click on the "How many SIP trunks do I need?" block'
       faq.clickFourthBlock();      
-      faq.shouldFourthDescriptionBlock();     
-    })
-
-    it('Click on the "How can I get started with SIP trunking?" block', () =>{     
+      faq.shouldFourthDescriptionBlock(); 
+      //'Click on the "How can I get started with SIP trunking?" block'
       faq.clickFifthBlock();
       faq.shouldFifthDescriptionBlock();
-    })
-
-    it('Click on the "How do I configure SIP trunks?" block', () =>{     
+      //'Click on the "How do I configure SIP trunks?" block' 
       faq.clickSixthBlock(); 
-      faq.shouldSixthDescriptionBlock(); 
-    })
-
-    it('Click on the "What is SIP trunking?" block', () =>{ 
+      faq.shouldSixthDescriptionBlock();
+      //'Click on the "What is SIP trunking?" block' 
       faq.clickFirstBlock();
       faq.shouldFirstDescriptionBlock();
-            
-    })
+
+    })   
   })
 })
