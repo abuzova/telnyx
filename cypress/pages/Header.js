@@ -1,15 +1,17 @@
 class Header { 
+
         
     // main menu   
 
     getNetworkMenuItem() {
         return cy.get("header .sc-14c941d7-7 ul>li:nth-child(5) a");
-    }   
+    } 
 
     //Products submenu
 
     getElastic_SIP_TrunkingSubMenuItem() {
         return cy.get("header .sc-14c941d7-7 ul>li:nth-child(1) div:nth-child(1)>a");
+
     }
 
     getVoice_API_SubMenuItem() {
@@ -171,7 +173,7 @@ class Header {
 
     clickElastic_SIP_TrunkingSubMenuItem(){
         this.getElastic_SIP_TrunkingSubMenuItem().click({ force: true });       
-    } 
+    }
 
     clickVoice_API_SubMenuItem(){
         this.getVoice_API_SubMenuItem().click({ force: true });       
@@ -342,6 +344,6 @@ class Header {
         cy.url().should('contain', '/sign-up');
     }
 
-  }
+  } 
 
 module.exports = Header
