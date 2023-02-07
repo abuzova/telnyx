@@ -1,17 +1,3 @@
-name: E2E on Chrome
-on: [push]
-jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
-    # let's make sure our tests pass on Chrome browser
-    name: E2E on Chrome
-    steps:
-      - uses: actions/checkout@v3
-      - uses: cypress-io/github-action@v5
-        with:
-          browser: chrome
-
-
 name: Firefox
 on: push
 jobs:
@@ -25,3 +11,5 @@ jobs:
       - uses: cypress-io/github-action@v5
         with:
           browser: firefox
+
+
