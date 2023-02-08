@@ -163,13 +163,15 @@ class Header {
     getSeeAllPricingSubMenuItem() {
         return cy.xpath('//header//ul[@class="sc-14c941d7-4 jgxzDd"]/li//span[text()="Pricing"]/../..//span[text()="See all Pricing"]');
     }
+
+    // Talk to an expert button
+
+    getTalkToAnExpertButton(){
+        return cy.get('header ul:nth-child(4)>li:nth-child(1)');
+    }    
     
 
-    // main menu,  Products submenues
-
-    /*hoverProductsMenuItem(){        
-        this.getProductsMenuItem().invoke('show').click();        
-    }*/
+    // main menu,  Products submenues    
 
     clickElastic_SIP_TrunkingSubMenuItem(){
         this.getElastic_SIP_TrunkingSubMenuItem().click({ force: true });       
@@ -205,7 +207,7 @@ class Header {
 
     clickSeeAllProductsSubMenuItem(){
         this.getSeeAllProductsSubMenuItem().click({ force: true });       
-    } 
+    }     
 
 
     // main menu,  Solutions submenues
@@ -344,6 +346,12 @@ class Header {
         cy.url().should('contain', '/sign-up');
     }
 
-  } 
+     // Talk to an expert button
+
+    clickTalkToAnExpertButton(){
+        this.getTalkToAnExpertButton().click();
+    }
+    
+} 
 
 module.exports = Header
