@@ -1,0 +1,67 @@
+[
+   {
+    "VOICE":        
+                [
+                    "/products/sip-trunks",
+                    "/products/voice-api",
+                    "/products/sip-termination",
+                    "/products/video-api",
+                    "/products/global-cloud-communications-platform",
+                    "/bring-your-own-carrier/microsoft-teams",
+                    "/products/webrtc",
+                    "/products/shaken-stir",
+                    "/products/branded-calling"
+                ]
+    },
+    {
+    "MESSAGING":         
+                {
+                    "SMS": "/products/sms-api", 
+                    "Short_Code_SMS": "/products/sms-short-code",
+                    "MMS": "/products/mms-api",
+                    "Toll_Free_SMS": "/products/toll-free-messaging",
+                    "A2P_10DLC": "/products/10dlc-registration",
+                    "Alphanumeric_Sender_ID": "/products/alphanumeric-sender-id"        
+                }
+    },
+    {
+    "FAX": 
+                {
+                    "Fax_API": "/products/fax-api"
+                }
+    },
+    {
+    "NUMBERS": 
+                {
+                    "Global_Numbers": "/products/phone-numbers",
+                    "Lookup_API": "/number-lookup",
+                    "Toll_Free_Numbers": "/products/toll-free-numbers",
+                    "FastPort": "/products/number-porting"        
+                }
+    },
+    {
+    "WIRELESS": 
+                {
+                    "Wireless": "/products/iot-sim-card",
+                    "Private_Wireless_Gateways": "/products/iot-sim-card/private-wireless-gateways"       
+                }    
+    },
+    {
+    "IDENTITY_and_DATA": 
+                {
+                    "Identity_Services": "/products/identity-services",
+                    "Verify_API": "/products/verify-api",
+                    "Call_Routing_Data": "/products/real-time-call-routing-lrn",
+                    "Switch_Data": "/products/lata-and-tandem-switch-data"     
+                }
+    },
+    {
+    "NETWORKING": 
+                {
+                    "Virtual_Cross_Connects": "/products/virtual-cross-connects",
+                    "Cloud_VPN": "/products/cloud-vpn",
+                    "Storage": "/products/cloud-storage"        
+                }
+
+    }  
+]
