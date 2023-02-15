@@ -50,7 +50,8 @@ class EBookDownload{
 
     checkReceiveEmailsTelnyxInput(){
         this.getReceiveEmailsTelnyxInput()
-            .click();
+            .click()            
+            .should('be.checked')
     }
 
 
