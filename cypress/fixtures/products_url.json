@@ -15,53 +15,52 @@
     },
     {
     "MESSAGING":         
-                {
-                    "SMS": "/products/sms-api", 
-                    "Short_Code_SMS": "/products/sms-short-code",
-                    "MMS": "/products/mms-api",
-                    "Toll_Free_SMS": "/products/toll-free-messaging",
-                    "A2P_10DLC": "/products/10dlc-registration",
-                    "Alphanumeric_Sender_ID": "/products/alphanumeric-sender-id"        
-                }
+                [
+                    "/products/sms-api", 
+                    "/products/sms-short-code",
+                    "/products/mms-api",
+                    "/products/toll-free-sms",
+                    "/products/10dlc-registration",
+                    "/products/alphanumeric-sender-id"        
+                ]
     },
     {
     "FAX": 
-                {
-                    "Fax_API": "/products/fax-api"
-                }
+                [
+                    "/products/fax-api"
+                ]
     },
     {
     "NUMBERS": 
-                {
-                    "Global_Numbers": "/products/phone-numbers",
-                    "Lookup_API": "/number-lookup",
-                    "Toll_Free_Numbers": "/products/toll-free-numbers",
-                    "FastPort": "/products/number-porting"        
-                }
+                [
+                    "/products/phone-numbers",
+                    "/number-lookup",
+                    "/products/toll-free-numbers",
+                    "/products/number-porting"        
+                ]
     },
     {
     "WIRELESS": 
-                {
-                    "Wireless": "/products/iot-sim-card",
-                    "Private_Wireless_Gateways": "/products/iot-sim-card/private-wireless-gateways"       
-                }    
+                [
+                    "/products/iot-sim-card",
+                    "/products/iot-sim-card/private-wireless-gateways"       
+                ]    
     },
     {
     "IDENTITY_and_DATA": 
-                {
-                    "Identity_Services": "/products/identity-services",
-                    "Verify_API": "/products/verify-api",
-                    "Call_Routing_Data": "/products/real-time-call-routing-lrn",
-                    "Switch_Data": "/products/lata-and-tandem-switch-data"     
-                }
+                [
+                    "/products/identity-services",
+                    "/products/verify-api",
+                    "/products/real-time-call-routing-lrn",
+                    "/products/lata-and-tandem-switch-data"     
+                ]
     },
     {
     "NETWORKING": 
-                {
-                    "Virtual_Cross_Connects": "/products/virtual-cross-connects",
-                    "Cloud_VPN": "/products/cloud-vpn",
-                    "Storage": "/products/cloud-storage"        
-                }
-
+                [
+                    "/products/virtual-cross-connects",
+                    "/products/cloud-vpn",
+                    "/products/cloud-storage"        
+                ]
     }  
 ]

@@ -4,20 +4,5 @@
   "email": "hello@cypress.io",
   "body": "Fixtures are a great way to mock data for responses to routes",
   "Elastic SIP Trunking": "/products/sip-trunks"
-}, 
-{
-  "VOICE":        
-              [
-                  {"SIP_Trunking": "/products/sip-trunks"},
-                  {"Voice_API": "/products/voice-api"},
-                  {"Outbound_Calling": "/products/sip-termination"},
-                  {"Telnyx_Video_API": "/products/video-api"},
-                  {"Global_Cloud_Communications_Platform": "/products/global-cloud-communications-platform"},
-                  {"Direct_Routing_for_Microsoft_Teams": "/bring-your-own-carrier/microsoft-teams"},
-                  {"Web_RTC": "/products/webrtc"},
-                  {"SHAKEN_STIR": "/products/shaken-stir"},
-                  {"Branded_Calling": "/products/branded-calling"}
-              ]
-  },
-
+}
 ]

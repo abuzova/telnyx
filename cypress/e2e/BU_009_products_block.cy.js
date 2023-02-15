@@ -1,110 +1,132 @@
 import Header from "../pages/Header.js"
-import ProductsPage from "../pages/ProductsPage.js"
-import CheckingLinks from "../helper/checking_links.js"
-
 const header = new Header();
-const productsPage = new ProductsPage();
-const checkingLinks = new CheckingLinks();
 
-
-describe('Testing Products block on the Product page', () => {  // need loop
+describe('Testing Products block on the Product page', () => {  
   context('Testing Products block on the Product page', () =>{
 
     beforeEach(()=>{
       cy.visit('https://telnyx.com/'); 
       // close "This site uses cookies." pop-up window 
-      cy.get('button[aria-label="close and deny"]').click(); // need to check is screen is unlock? 
-
+      cy.get('button[aria-label="close and deny"]').click();
+      header.clickSeeAllProductsSubMenuItem();
+      cy.wait(3000);
     }) 
 
-    it.skip('Testing Products block on the Product page', ()=>{
-      //footer.clickElasticSIPTrunkingMenuItem();
-      //cy.url().should('include', '/products/sip-trunks'); 
-      header.clickSeeAllProductsSubMenuItem();
-      //cy.wait(2000);
-      //cy.go('back');
-    })   
-
-    it.skip('Work with json file', ()=>{
-      //cy.writeFile('path/to/message.txt', 'Hello World')
-      //cy.readFile('path/to/message.txt').then((text) => {
-      //  expect(text).to.equal('Hello World') // true
-      //})
-      cy.readFile('D:/Progects/cypress/telnyx/cypress/fixtures/products_url.json')
-      .then((text) => {
-          //expect(text).to.equal('Hello World') // true
-          console.log(text);
-      });
-      cy.readFile('D:/Progects/cypress/telnyx/cypress/fixtures/products_url.json')
-      //.its('VOICE.SIP_Trunking').should('eq', '/products/sip-trunks');
-      cy.readFile('D:/Progects/cypress/telnyx/cypress/fixtures/example.json')
-      .its('0.name').should('eq', 'Using fixtures to represent data');
-    })
-
-
-    it.skip('loop for links', ()=>{
-      header.clickSeeAllProductsSubMenuItem();
-      cy.wait(3000); 
+    it('VOICE block', ()=>{
      
-      //console.log( '@elem'.valueOf );    
-      const fruits = [];
-      fruits.push("banana", "apple", "peach");
-      console.log('fruits.length: ' + fruits.length + '   ' + 'fruits: ' + fruits[0]); // 3
-      //checkingLinks.checkLinks(fruits);  
-      /*for(let i=0; i<fruits.length; i++){
-        console.log('Hello! ' + fruits[i]);
-      }*/ 
-      
-     /* beforeEach(() => {
-        cy.fixture('users.json').as('users')
-      }) */     
-      
-        // access the array of users
-        cy.get('main div ul:nth-child(2)').as('elems'); 
-        cy.get('@elems').then((elems) => {
-          // get the first user
-          const elem = elems[0];
-          console.log(elem);  // html structure
-      
-          //cy.get('header').contains(elem.name)
-       
-      })
-    })
-     
-      
-    it.skip('disables on click', () => {
-        header.clickSeeAllProductsSubMenuItem();
-        cy.wait(3000); 
         cy.fixture('products_url.json').as('products_url')
-        // access the array of users
-        cy.get('@products_url').then((users) => {
-          // get the first user
-          const user = users[1]
-          console.log(user);
-      
-          cy.get('main div ul:nth-child(2) li:nth-child(1) a').should('have.attr', 'href', user.VOICE.SIP_Trunking)
+        // access the array of links
+        cy.get('@products_url').then((productsUrl) => {          
           
-       
-      })
+          console.log('Hello it is arrays' + productsUrl[1].MESSAGING);
 
-
+          // get the first block
+          const block_1 = productsUrl[0]; // VOICE
+          //console.log(block_1.VOICE);
+          
+          for(let i = 0; i<block_1.VOICE.length; i++){
+            cy.get('main div ul:nth-child(2) li:nth-child(' + (i+1) +') a').as('subBlock')
+            cy.get('@subBlock').should('have.attr', 'href', block_1.VOICE[i]);            
+            //console.log("   " + block_1.VOICE[i]);          
+          } 
+        })
     })
 
-      it('first block', ()=>{
-        header.clickSeeAllProductsSubMenuItem();
-        cy.wait(3000); 
-          cy.fixture('products_url.json').as('products_url')
-          // access the array of users
-          cy.get('@products_url').then((productsUrl) => {
-            // get the first user
-            const block_1 = productsUrl[0] // VOICE
-            console.log(block_1.VOICE);
-            for(let i = 0; i<block_1.VOICE.length; i++){
-              cy.get('main div ul:nth-child(2) li:nth-child(' + (i+1) +') a').should('have.attr', 'href', block_1.VOICE[i]);
-              console.log(cy.get('main div ul:nth-child(2) li:nth-child(' + (i+1) +') a') + "   " + block_1.VOICE[i]);
-              //console.log('Hello!' + block_1.VOICE.length);
-            } 
-          })
+    it('MESSAGING block', ()=>{
+        cy.fixture('products_url.json').as('products_url');
+        // access the array of links
+        cy.get('@products_url').then((productsUrl) => { 
+
+          // get the second block
+          const block_2 = productsUrl[1]; // MESSAGING
+          //console.log(block_2.MESSAGING);
+          
+          for(let i = 0; i<block_2.MESSAGING.length; i++){
+            cy.get('main div ul:nth-child(4) li:nth-child(' + (i+1) +') a').as('subBlock2'); 
+            cy.get('@subBlock2').should('have.attr', 'href', block_2.MESSAGING[i]);            
+            //console.log("   " + block_2.MESSAGING[i]);            
+          } 
+        })
+    })
+    it('FAX block', ()=>{
+      cy.fixture('products_url.json').as('products_url');
+        // access the array of links
+        cy.get('@products_url').then((productsUrl) => { 
+
+          // get the second block
+          const block_3 = productsUrl[2]; // FAX
+          //console.log(block_3.FAX);
+          
+          for(let i = 0; i<block_3.FAX.length; i++){
+            cy.get('main div ul:nth-child(6) li:nth-child(' + (i+1) +') a').as('subBlock3'); 
+            cy.get('@subBlock3').should('have.attr', 'href', block_3.FAX[i]);            
+            //console.log("   " + block_3.FAX[i]);            
+          } 
+        })
+    })
+    it('NUMBERS block', ()=>{
+      cy.fixture('products_url.json').as('products_url');
+        // access the array of links
+        cy.get('@products_url').then((productsUrl) => { 
+
+          // get the second block
+          const block_4 = productsUrl[3]; // NUMBERS
+          //console.log(block_4.NUMBERS);
+          
+          for(let i = 0; i<block_4.NUMBERS.length; i++){
+            cy.get('main div ul:nth-child(8) li:nth-child(' + (i+1) +') a').as('subBlock4'); 
+            cy.get('@subBlock4').should('have.attr', 'href', block_4.NUMBERS[i]);            
+            //console.log("   " + block_4.NUMBERS[i]);            
+          } 
+        })
+    })
+    it('WIRELESS block', ()=>{
+      cy.fixture('products_url.json').as('products_url');
+      // access the array of links
+      cy.get('@products_url').then((productsUrl) => { 
+
+        // get the second block
+        const block_5 = productsUrl[4]; // WIRELESS
+        //console.log(block_5.WIRELESS);
+        
+        for(let i = 0; i<block_5.WIRELESS.length; i++){
+          cy.get('main div ul:nth-child(10) li:nth-child(' + (i+1) +') a').as('subBlock5'); 
+          cy.get('@subBlock5').should('have.attr', 'href', block_5.WIRELESS[i]);            
+          //console.log("   " + block_5.WIRELESS[i]);            
+        } 
       })
+    })
+    it('IDENTITY_and_DATA block', ()=>{
+      cy.fixture('products_url.json').as('products_url');
+      // access the array of links
+      cy.get('@products_url').then((productsUrl) => { 
+
+        // get the second block
+        const block_6 = productsUrl[5]; // IDENTITY_and_DATA
+        //console.log(block_6.IDENTITY_and_DATA);
+        
+        for(let i = 0; i<block_6.IDENTITY_and_DATA.length; i++){
+          cy.get('main div ul:nth-child(12) li:nth-child(' + (i+1) +') a').as('subBlock6'); 
+          cy.get('@subBlock6').should('have.attr', 'href', block_6.IDENTITY_and_DATA[i]);            
+          //console.log("   " + block_6.IDENTITY_and_DATA[i]);            
+        } 
+      })
+    })
+    it('NETWORKING block', ()=>{
+      cy.fixture('products_url.json').as('products_url');
+      // access the array of links
+      cy.get('@products_url').then((productsUrl) => { 
+
+        // get the second block
+        const block_7 = productsUrl[6]; // NETWORKING
+        //console.log(block_7.NETWORKING);
+        
+        for(let i = 0; i<block_7.NETWORKING.length; i++){
+          cy.get('main div ul:nth-child(14) li:nth-child(' + (i+1) +') a').as('subBlock7'); 
+          cy.get('@subBlock7').should('have.attr', 'href', block_7.NETWORKING[i]);            
+          //console.log("   " + block_7.NETWORKING[i]);            
+        } 
+      })
+    }) 
   })
 })
