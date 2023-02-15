@@ -3,3 +3,6 @@
   "email": "hello@cypress.io",
   "body": "Fixtures are a great way to mock data for responses to routes"
 }
+[ {"q1Passed": "q1Passed"}, {"q2Passed": "q2Passed"}, {"q3Passed": "q3Passed"} ]
+{"q2Passed": "q2Passed"}, 
+    {"q3Passed": "q3Passed"} 
