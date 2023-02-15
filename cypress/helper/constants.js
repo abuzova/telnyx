@@ -1,7 +1,7 @@
 class Constants {     
 
     EMAIL = 'aaa@gmail.com';
-    FULLNAME = 'Anna';
+    FULLNAME = 'Anna'; 
     LASTNAME = 'Teylor';
     PASSWORD = 'wjfji59(djGR43*';
     PHONE = '1234567890';
