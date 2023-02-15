@@ -1,11 +1,12 @@
 import Header from "../pages/Header.js"
 import DownloadForm from "../pages/DownloadForm.js"
 import Constants from "../helper/constants.js"
-
+import Footer from "../pages/Footer.js";
 
 const header = new Header();
 const downloadForm = new DownloadForm();
 const constants = new Constants();
+const footer = new Footer();
 
 
 describe('Verify Download SIP Trunking pricing form with valid credentials', () => {
@@ -19,20 +20,17 @@ describe('Verify Download SIP Trunking pricing form with valid credentials', () 
     }) 
 
     it('Verify Download SIP Trunking pricing form with valid credentials', ()=>{      
-      header.clickElasticSIPTrunkingSubMenuItem(); 
-      //cy.get('#pricing_download_form>div>div>div>.Text-sc-5o8owa-0:nth-child(1)').scrollIntoView();     
-      //cy.get('#pricing_download_form div .Text-sc-5o8owa-0').scrollIntoView();
-      cy.wait(50000); 
-      cy.get('footer[class="sc-7b6c9f9b-0 dKHwUU"]').scrollIntoView({ duration: 2000 });
+      header.clickElasticSIPTrunkingSubMenuItem();
       
-      //cy.get('#pricing_download_form>div>div>div>.Text-sc-5o8owa-0:nth-child(1)').scrollIntoView({ duration: 2000 });    
+      
+      cy.wait(3000);  // waiting for full loading the https://telnyx.com/pricing/elastic-sip page 
+      footer.getFooterBlock().scrollIntoView({ duration: 2000 });  // scroll for load "Download form"  
+          
       downloadForm.setFirstNameInput(constants.FULLNAME);
       downloadForm.setLastNameInput(constants.LASTNAME);
       downloadForm.setEmailInput(constants.EMAIL);
-      downloadForm.checkSubscriptionInput();
+      downloadForm.checkSubscriptionInput();          
       downloadForm.getDownloadCSVButton();
-
     })
-
   })
  })

@@ -1,5 +1,9 @@
 class Footer{
 
+    getFooterBlock(){
+        return cy.get('footer[class="sc-7b6c9f9b-0 dKHwUU"]');
+    }
+
     // Products footer menu
 
     getElasticSIPTrunkingMenuItem() {

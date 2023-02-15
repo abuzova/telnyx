@@ -17,9 +17,15 @@ class DownloadForm {
         return cy.get('form input[name="Subscription_Opt_In__c"]');
     }
 
+    getSubscriptionLabel(){
+        return cy.xpath('//form//input[@name="Subscription_Opt_In__c"]/following-sibling::label');
+    }
+
     getDownloadCSVButton(){
         return cy.get('form button[type="submit"]');
     }
+    
+    
 
     setFirstNameInput(firstNameValue){        
         this.getFirstNameInput().type(firstNameValue);
@@ -36,12 +42,9 @@ class DownloadForm {
         this.getEmailInput().should('have.value', emailValue);
     }
 
-    checkSubscriptionInput(){
-        //this.getSubscriptionInput().click();
-        this.getSubscriptionInput().check({ force: true }).should('be.checked');
-           // .check({ force: true })
-            
-           //cy.get('.sidebar').scrollTo('bottom')
+    checkSubscriptionInput(){        
+        this.getSubscriptionInput().should('not.be.visible').check({ force: true });
+        this.getSubscriptionLabel().should('have.attr', 'aria-checked', 'true');       
     }
 
 }
