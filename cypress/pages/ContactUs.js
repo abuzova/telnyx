@@ -46,9 +46,9 @@ class ContactUs{
     }  
    
 
-    setReasonContactSelect(){
-        this.getReasonContactSelect().select('Sales-Inquiry');
-        this.getReasonContactSelect().should('have.value', 'Sales-Inquiry'); 
+    setReasonContactSelect(reasonContactValue){
+        this.getReasonContactSelect().select(reasonContactValue);
+        this.getReasonContactSelect().should('have.value', reasonContactValue); 
     }
     
     setFirstNameInput(valueFirstName){
@@ -66,9 +66,9 @@ class ContactUs{
         this.getEmailInput().should('have.value', emailValue);
     }
 
-    setContactPhoneNumberSelect(){
-        this.getContactPhoneNumberSelect().select('+49');
-        this.getContactPhoneNumberSelect().should('have.value', '+49');
+    setContactPhoneNumberSelect(contactPhoneNumberValue){
+        this.getContactPhoneNumberSelect().select(contactPhoneNumberValue);
+        this.getContactPhoneNumberSelect().should('have.value', contactPhoneNumberValue);
     }
 
     setPhoneNumberInput(phoneValue){

@@ -20,16 +20,16 @@ describe('Verify contact us form with valid credentials', () => {
     it('Verify contact us form with valid credentialsr', ()=>{     
       header.clickTalkToAnExpertButton();
       cy.url().should('include', '/contact-us');
-      contactUs.setReasonContactSelect();  // can bee random
+      contactUs.setReasonContactSelect(constants.REASON_FOR_CONTACT); 
       contactUs.setFirstNameInput(constants.FULLNAME);
       contactUs.setLastNameInput(constants.LASTNAME);
       contactUs.setEmailInput(constants.EMAIL);
-      contactUs.setContactPhoneNumberSelect(); // can bee random
-      contactUs.setPhoneNumberInput(constants.PHONE) // can bee random
+      contactUs.setContactPhoneNumberSelect(constants.COUNTRY_PHONE_NUMBER); 
+      contactUs.setPhoneNumberInput(constants.PHONE) 
       contactUs.setWebsiteInput(constants.WEBSITE);
-      contactUs.setPrimaryInterestSelect(constants.PRIMARY_INTEREST); // can bee random
+      contactUs.setPrimaryInterestSelect(constants.PRIMARY_INTEREST); 
       contactUs.setAdditionalInformationInput(constants.ADDITIONAL_INFORMATION);
-      contactUs.checkSubscriptionInput();
+      contactUs.checkSubscriptionInput();  // should be the assertion that the checkbox is checked
       contactUs.getSubmitButton();
 
     })
