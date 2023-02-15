@@ -14,14 +14,16 @@ class ReportAbuse{
     getDateTimeInput(){
         return cy.get('form input[name="dateTime"]');
     }
+    getDayofMonth(dayValue){
+        let selector = 'td[data-value="'+ dayValue + '"]';
+        return cy.get(selector);
+    }
     
     getServiceAbusedVoiceInput(){
-        return cy.get('form input[id="serviceAbusedVoice"]');
-        //return cy.xpath('//form//input[@id="serviceAbusedVoice"]/..');
+        return cy.get('form input[id="serviceAbusedVoice"]');       
     }
 
-    getServiceAbusedVoiceBlock(){
-        //return cy.get('form input[id="serviceAbusedVoice"]');
+    getServiceAbusedVoiceBlock(){        
         return cy.xpath('//form//input[@id="serviceAbusedVoice"]/..');
     }
 
@@ -69,10 +71,11 @@ class ReportAbuse{
     }
 
     setDateTimeInput(dateTimeValue){
-        this.getDateTimeInput().clear().type(dateTimeValue);  
-        this.getFormBlock().click();   
-        this.getDateTimeInput().should('have.value', dateTimeValue); 
-        //   value="02/21/2023 3:54 PM"          
+        this.getDateTimeInput().click();
+        this.getDayofMonth(dateTimeValue).click(); 
+        this.getFormBlock().click();  // clicking to some space to date receive in the DateTimeInput
+        this.getDateTimeInput().should('contains.value', dateTimeValue); 
+                  
     }
 
     clickServiceAbusedVoiceInput(){
@@ -95,21 +98,10 @@ class ReportAbuse{
         this.getEmailInput().should('have.value', reporterNameValue);           
     }
 
-
-
-    /*setReporterEmailInput(reporterEmailValue){
-        this.getReporterEmailInput().type(reporterEmailValue);     
-        this.getReporterEmailInput().should('have.value', reporterEmailValue);
-    }*/
-
-
     setLongDescriptionInput(longDescriptionValue){
         this.getLongDescriptionInput().type(longDescriptionValue);     
         this.getLongDescriptionInput().should('have.value', longDescriptionValue);           
     }
-    
-    
-
 }
 
 module.exports = ReportAbuse

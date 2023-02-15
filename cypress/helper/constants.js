@@ -7,19 +7,14 @@ class Constants {
     // Report Abuse
 
     SUBJECT = 'Subject';
-    ABUSIVE_PHONE_NUMBER = 'AbusivePhoneNumber';
-    ABUSED_PHONE_NUMBER = 'AbusedPhoneNumber';
-    DATE_TIME = 'DateTime';
-    SERVICE_ABUSED_VOICE = 'ServiceAbusedVoice';
-    SERVICE_ABUSED_SMS = 'ServiceAbusedSms';
-    LAST_NAME = 'LastName';
-    EMAIL = 'Email';
+    ABUSIVE_PHONE_NUMBER = '1234567890';
+    ABUSED_PHONE_NUMBER = '0987654321';
+    DATE_TIME = '05/25/2023 7:43 PM';
+    LASTNAME = 'Teylor';    
     LONG_DESCRIPTION = 'LongDescription';
     SUBMIT = 'Submit';
     SUBJECT = 'Subject';
-    ABUSIVE_PHONE_NUMBER = 'AbusivePhoneNumber';  
-    ABUSED_PHONE_NUMBER = 'AbusedPhoneNumber';
-    DATE_TIME = "04/27/2023 3:54 PM"
+    DAY_NUMBER = "12"
 
   }
 

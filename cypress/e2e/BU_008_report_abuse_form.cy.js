@@ -17,30 +17,26 @@ describe('Verify Report Abuse form with valid credentials', () => {
     beforeEach(()=>{
       cy.visit('https://telnyx.com/'); 
       // close "This site uses cookies." pop-up window 
-      cy.get('button[aria-label="close and deny"]').click(); // need to check is screen is unlock? 
-
-    }) 
-
-    it('Verify Report Abuse form with valid credentials', ()=>{
+      cy.get('button[aria-label="close and deny"]').click(); // need to check is screen is unlock?
       header.clickElastic_SIP_TrunkingSubMenuItem();
       cy.url().should('include', '/products/sip-trunks');
       siptrunks.clickTalkToExpertButton();
       cy.url().should('include', '/contact-us');
       talkToExpert.clickReportAbuseForm();
-      cy.url().should('include', '/report-abuse');
+      cy.url().should('include', '/report-abuse');     
 
+    }) 
+
+    it('Verify Report Abuse form with valid credentials', ()=>{
       reportAbuse.setSubjectInput(contants.SUBJECT);
-      //reportAbuse.setAbusivePhoneNumberInput(contants.ABUSIVE_PHONE_NUMBER);
-      //reportAbuse.setAbusedPhoneNumberInput(contants.ABUSED_PHONE_NUMBER);
-      //reportAbuse.setDateTimeInput(contants.DATE_TIME);
+      reportAbuse.setAbusivePhoneNumberInput(contants.ABUSIVE_PHONE_NUMBER);
+      reportAbuse.setAbusedPhoneNumberInput(contants.ABUSED_PHONE_NUMBER);
+      reportAbuse.setDateTimeInput(contants.DAY_NUMBER);
       reportAbuse.clickServiceAbusedVoiceInput();
       reportAbuse.clickServiceAbusedSmsInput();
-      reportAbuse.setLastNameInput(contants.LAST_NAME);
-      //reportAbuse.setEmailInput(contants.EMAIL);
-    reportAbuse.setLongDescriptionInput(contants.LONG_DESCRIPTION);
-
-      
-
+      reportAbuse.setLastNameInput(contants.LASTNAME);
+      reportAbuse.setEmailInput(contants.EMAIL);
+      reportAbuse.setLongDescriptionInput(contants.LONG_DESCRIPTION);
     })
 
   })
