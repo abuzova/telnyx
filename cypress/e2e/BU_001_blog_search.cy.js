@@ -1,26 +1,30 @@
 import Header from "../pages/Header.js"
 import Search from "../pages/Search.js"
 import Constants from "../helper/Constants.js"
-//import { it } from "node:test";
+
+
 
 const header = new Header();
 const search = new Search();
 const constants = new Constants();
 
 describe('Verify search in the Blog page', () => {
-  context('', () =>{
+  context('Verify search in the Blog page', () =>{
 
     beforeEach(()=>{
-      //cy.visit('https://telnyx.com/'); 
+      //cy.visit('https://telnyx.com/');
+      cy.visit('https://ncu.libanswers.com/faq/221768'); 
       // close "This site uses cookies." pop-up window 
-      //cy.get('button[aria-label="close and deny"]').click(); // need to check is screen is unlock? 
+      cy.get('button[aria-label="close and deny"]').click();
 
       // Click on the "Resources --> Blog" menu item	
-      //header.clickBlogSubMenuItem();            
-      //cy.url().should('include', '/resources');  
-
-      cy.fixture('q1pass.json').as('qpasses')
-      cy.fixture('users-admins.json').as('admins')
+      header.clickBlogSubMenuItem();            
+      cy.url().should('include', '/resources');
+      
+      //cy.fixture('q1pass.json').as('qpasses')
+      //cy.fixture('users-admins.json').as('admins')
+      
+      search.setSearchInput(constants.SEARCH_WORD);
 
     })
 
@@ -101,7 +105,8 @@ describe('Verify search in the Blog page', () => {
         jsonAssertion.softAssertAll();
       })
 
-      it("new example", function (){
+    it.skip("new example", function (){
+          
          
           const qExpected = ['q1Passed', 'q2Passed', 'q3Passed']
           const qPassed = []
@@ -115,16 +120,32 @@ describe('Verify search in the Blog page', () => {
           console.log('Hello: ' + this.qpasses[0].q1Passed);
 
           if (cy.isElementVisible(this.qpasses)) {
-                  qPassed.push(qExpected[0])
+                 /* qPassed.push(qExpected[0])
                   qPassed.push(qExpected[1])
-                  qPassed.push(qExpected[2])
+                  qPassed.push(qExpected[2])*/
+                  qPassed.push(this.qpasses[0].q1Passed)
+                  qPassed.push(this.qpasses[0].q2Passed)
+                  qPassed.push(this.qpasses[0].q3Passed)
           }
 
           // Thereafter, you repeat the same condition as many time as needed and according the number of element defined in your array.
 
           // Finally, you if compare the first array contains all the element that you were expected. So that your test does not fail until this point.
-          //expect(qPassed).to.have.members(qExpected)
-      })
+          expect(qPassed).to.have.members(qExpected)
+    })
+
+    it('Title Article 1', ()=>{
+      
+      search.containSearchWordInTitleArticle1(constants.SEARCH_WORD);     
+
+    })
+
+    it.skip('Description Article 1 ', ()=>{      
+      
+      search.clickArticle1();
+      search.containSearchWordInDescriptionNewArticle1(constants.SEARCH_WORD);
+
+    })
 
   })
 })
