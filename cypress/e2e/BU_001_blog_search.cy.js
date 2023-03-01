@@ -1,6 +1,6 @@
 import Header from "../pages/Header.js"
 import Search from "../pages/Search.js"
-import Constants from "../helper/Constants.js"
+import Constants from "../helper/constants.js"
 
 const header = new Header();
 const search = new Search();
