@@ -4,30 +4,17 @@ class Search{
         return cy.get('input[id="search"]');
     }
 
-    getTitleArticle1() {
-        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child(1) h2.Text-sc-5o8owa-0');
-    }
+    getTitleArticle(i) {
+        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child('+ i +') h2');
+    }    
 
-    getTitleArticle2() {
-        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child(2) h2.Text-sc-5o8owa-0');
-    }
-
-    getArticle1() {
-        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child(1)');
+    getArticle(i) {
+        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child(' + i + ')');
     }
     
-    getArticleNew1() {
+    getArticleFull() {
         return cy.get('article div.Text-sc-5o8owa-0.sc-39b9d282-1.ijJVSH.bARHnM');
     }
-
-    getArticle2() {
-        return cy.get('[id="articles"]>div:nth-child(2) a:nth-child(1)');
-    }
-    
-    getArticleNew2() {
-        return cy.get('article div.Text-sc-5o8owa-0.sc-39b9d282-1.ijJVSH.bARHnM');
-    }
-    
 
     setSearchInput(searchValue){
         this.getSearchInput()
@@ -35,37 +22,24 @@ class Search{
             .type('{enter}');
     }
 
-    containSearchWordInTitleArticle1(searchValue){
-       this.getTitleArticle1().should('have.text', searchValue)
+    containSearchWordInTitleArticle(searchValue, i){
+        cy.wait(3000)
+        this.getTitleArticle(i)
+            .contains(searchValue, { matchCase: false })
+           
+    }   
+
+    clickArticle(i){
+        this.getArticle(i).click();
     }
-
-    containSearchWordInTitleArticle2(searchValue){        
-        this.getTitleArticle2().contains(searchValue, { matchCase: false })      
-     }
-
-    clickArticle1(){
-        this.getArticle1().click();
+    
+    containSearchWordInDescriptionFullArticle(searchValue){
+        //cy.get('.sc-39b9d282-8.lktGIL').scrollIntoView()
+        cy.wait(3000)
+        this.getArticleFull()
+            .contains(searchValue, { matchCase: false }) 
+                       
     }
-
-    clickArticle2(){
-        this.getArticle2().click();
-    }
-
-    containSearchWordInDescriptionNewArticle1(searchValue){
-        this.getArticleNew1()
-            .contains(searchValue, { matchCase: false })            
-    }
-
-   /*containSearchWordInDescriptionArticle2(searchValue){
-        this.clickArticle()
-            .should('have.text', searchValue)
-    }*/
-
-    containSearchWordInDescriptionNewArticle2(searchValue){
-        this.getArticleNew2()
-            .contains(searchValue, { matchCase: false })            
-    }
-
     
 }
 

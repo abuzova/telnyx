@@ -1,15 +1,18 @@
 {
   "devDependencies": {
-    "cypress": "^12.5.1",
+    "@testing-library/cypress": "^9.0.0",
+    "cypress": "^12.7.0",
     "cypress-xpath": "^2.0.1",
-    "start-server-and-test": "^1.15.3"
+    "eslint-plugin-cypress": "^2.12.1",
+    "soft-assert": "^0.2.6",
+    "start-server-and-test": "^1.15.3",
+    "test-data-bot": "^0.8.0"
   },
   "scripts": {
     "cypress:open": "cypress open"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "mkdirp": "^2.1.3",
-    "soft-assert": "^0.2.6"
+    "mkdirp": "^2.1.3"
   }
 }
