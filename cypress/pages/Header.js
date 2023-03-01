@@ -95,9 +95,11 @@ class Header {
         return cy.xpath('//header//ul[@class="sc-14c941d7-4 jgxzDd"]/li//span[text()="Customer Stories"]');
     }
 
+
     getBlogSubMenuItem() {
         return cy.xpath('//header//ul[@class="sc-14c941d7-4 jgxzDd"]/li//span[text()="Blog"]');
     }
+
 
     getBringYourOwnCarrierSubMenuItem() {
         return cy.xpath('//header//ul[@class="sc-14c941d7-4 jgxzDd"]/li//span[text()="Bring Your Own Carrier"]');
@@ -350,8 +352,15 @@ class Header {
 
     clickTalkToAnExpertButton(){
         this.getTalkToAnExpertButton().click();
+    }   
+
+
+    // main menu,  Resources submenu 
+
+    clickBlogSubMenuItem(){
+        this.getBlogSubMenuItem().click({ force: true });       
     }
-    
-} 
+}
+
 
 module.exports = Header

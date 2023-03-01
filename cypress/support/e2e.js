@@ -23,3 +23,14 @@ import './commands'
 require('@cypress/xpath');
 import "cypress-real-events";
 require('cypress-xpath');
+
+
+import './commands'
+import './tableCommands'
+import '@testing-library/cypress/add-commands'
+
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
+

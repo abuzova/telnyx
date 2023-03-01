@@ -20,7 +20,9 @@ class Constants {
     LONG_DESCRIPTION = 'LongDescription';
     DAY_NUMBER = "12" 
 
-
+    //  Blog Search
+    SEARCH_WORD = 'understanding';
+    NUMBER_ARTICLES = 40;
   }
 
 module.exports = Constants
