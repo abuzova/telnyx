@@ -65,7 +65,7 @@ describe('Describe Verify search in the Blog page', () => {
                 })
             })                  
                             
-            it('If count == 0 or 1 than test is passed, if count >= 2 than test is failed', ()=>{
+            it('If passed than title and/or description of the '+ i +' article have the "'+ constants.SEARCH_WORD +'" word, if failed than title and description of the '+ i +' article do not  have the "' + constants.SEARCH_WORD +'" word' , ()=>{
                 cy.softAssert(count < 2, true, 'The title and article do not have the search word');
                 cy.softAssertAll();
             }) 
