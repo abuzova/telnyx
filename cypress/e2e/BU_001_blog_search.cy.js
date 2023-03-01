@@ -65,7 +65,7 @@ describe('Describe Verify search in the Blog page', () => {
                 })
             })                  
                             
-            it('is count == 0 or 1?', ()=>{
+            it('If count == 0 or 1 than test is passed, if count >= 2 than test is failed', ()=>{
                 cy.softAssert(count < 2, true, 'The title and article do not have the search word');
                 cy.softAssertAll();
             }) 
